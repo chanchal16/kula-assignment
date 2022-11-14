@@ -16,11 +16,11 @@ export const Form = () => {
           dispatch(getUsers({searchQuery:query}))
     }
   return (
-    <form  onSubmit={submitHandler}>
-        <Input type={'text'} placeholder='skills' value={skill} onChange={(e)=>setSkill(e.target.value)} />
-        <Input type={'text'} placeholder='location' value={location} onChange={(e)=>setLocation(e.target.value)} />
+    <form data-testid='form'  onSubmit={submitHandler}>
+        <Input data-testid='skill' type={'text'} placeholder='skills' value={skill} onChange={(e)=>setSkill(e.target.value)} />
+        <Input data-testid='location' type={'text'} placeholder='location' value={location} onChange={(e)=>setLocation(e.target.value)} />
         {/* <IconButton colorScheme='blue' aria-label='Search users' icon={<SearchIcon />}/>  */}
-        <button className='search-btn'><SearchIcon /></button>
+        <button type='submit' data-testid='submit-btn' className='search-btn'><SearchIcon /></button>
     </form>
   )
 }
