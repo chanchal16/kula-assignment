@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import usersReducer from '../features/Users/usersSlice.js';
 
-function reducer(
+function customRender(
   ui,
   {
     preloadedState,
@@ -22,4 +22,4 @@ function reducer(
 }
 
 export * from '@testing-library/react';
-export { reducer };
+export { customRender };
