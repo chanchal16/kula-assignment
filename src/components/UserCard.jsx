@@ -3,13 +3,13 @@ import { Box,Flex,WrapItem, Button,Text,Image, Link } from '@chakra-ui/react';
 
 export const UserCard = ({user}) => {
   return (
-    <Box data-testid='user' key={user.id}  w='2xl' p={2} m={2} border='1.5px' borderStyle='solid' borderColor='gray.200' borderRadius='5px'>
+    <Box data-testid={`${user.login}-card`} key={user.id}  w='2xl' p={2} m={2} border='1.5px' borderStyle='solid' borderColor='gray.200' borderRadius='5px'>
         <Flex align="center" justify="flex-start" gap={8}>
             <WrapItem>
                 <Image boxSize='150px' alt={user.login} src={user.avatar_url} />{' '}
             </WrapItem>
             <Box>
-                <Text as='b' fontSize='xl'>{user.login}</Text>                                 
+                <Text data-testid='username' as='b' fontSize='xl'>{user.login}</Text>                                 
                 <Flex gap={8}>
                     <Text  fontSize='2xl'>{user.repos_url.length} <span  fontSize='xl'>Repos</span></Text>
                     <Text fontSize='2xl'>{user.followers_url.length} <span fontSize='xl'>Followers</span></Text>
