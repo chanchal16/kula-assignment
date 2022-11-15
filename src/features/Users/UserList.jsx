@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import { UserCard } from '../../components/UserCard';
 
 export const UserList = () => {
-    const {userList,status} = useSelector(state=>state.users)
+    const {userList,status} = useSelector(state=>state.users);
+    
   return (
     <section className='userlist-container'>
         {
@@ -14,7 +15,7 @@ export const UserList = () => {
                 </Box>
             ) 
             : status === 'rejected' ? (
-                <Box mx='auto' data-testid='err-container'>
+                <Box mx='auto' display='flex' justifyContent='center' alignItems='center' data-testid='err-container'>
                     <Text color='red.500' >Oops. An error occured!</Text>
                 </Box>
             ) 

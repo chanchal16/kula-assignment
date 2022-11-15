@@ -3,18 +3,17 @@ import axios from 'axios';
 
 const initialState = {
     userList: [],
-    status:'idle',   
+    status:'idle', 
 }
 
-export const getUsers = createAsyncThunk("users/getUsers",async({searchQuery})=>{
-    console.log('query',searchQuery)
+export const getUsers = createAsyncThunk("users/getUsers",async({queryText})=>{
+    let searchQuery = `${queryText}&sort=followers`
     try{       
        const {data}= await axios.get(`https://api.github.com/search/users?q=${searchQuery}`,{
         headers: {
             Accept: "application/vnd.github.v3+json"
           }
        } )
-       console.log('data',data.items)
         return data.items       
     }catch(err){console.error(err)}
 })
